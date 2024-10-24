@@ -1,0 +1,14 @@
+# ========================================================================
+# COMMANDS USED
+# ========================================================================
+npm create vite@latest 
+
+# React framework
+# 
+
+cd <project_name>
+npm install
+
+
+# to run, use
+npm run dev
