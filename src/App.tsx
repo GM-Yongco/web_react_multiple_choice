@@ -1,33 +1,41 @@
+// REACT STUFF
+import { BrowserRouter, Route, Routes , Link} from 'react-router-dom'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+// ROUTING
+import MultipleChoice from './multiple_choice.tsx'
+import Initial from './initial.tsx'
+import LayerOne from './layers.tsx'
+import LayerThree from './layer3.tsx'
+
+// PAGE SPECIFIC
 import './App.css'
 
 function App() {
+
+  // using these on the components is called drilling
+  // learn use_context to prevent prop driling for later
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <nav>
+          <p>permanent nav bar</p>
+          <ul>
+            <li><Link to = "/">home</Link></li>
+            <li><Link to = "/multiple_choice">multiple_choice</Link></li>
+            <li><Link to = "/layers">layers</Link></li>
+            <li><Link to = "/layer3">layer3</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Initial />} />
+          <Route path="/multiple_choice" element={<MultipleChoice />} />
+          <Route path="/layers" element={<LayerOne count={count} setCount={setCount}/>} />
+          <Route path="/layer3" element={<LayerThree count={count} setCount={setCount}/>} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

@@ -4,11 +4,13 @@
 npm create vite@latest 
 
 # React framework
-# 
+# uses Typescript
 
 cd <project_name>
 npm install
 
-
 # to run, use
 npm run dev
+
+# for routing
+npm install react-router-dom@latest
